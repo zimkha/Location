@@ -17,4 +17,15 @@ export class HouseService {
     public getOneHouseById(id: number): Observable<House> {
         return this._http.get<House>(this.apiUrl + "/houses/"+ id);
     }
+
+    public getOneSelected(): Observable<House[]> {
+        return  this._http.get<House[]>(this.apiUrl + "/houses?avalaible=true");
+    }
+    public getUnSelected(): Observable<House[]> {
+        return  this._http.get<House[]>(this.apiUrl + "/houses?avalaible=true");
+    }
+
+    public onSearchHouse(city: string): Observable<House[]> {
+        return this._http.get<House[]>(this.apiUrl + "/houses?city_like="+city)
+    }
 }

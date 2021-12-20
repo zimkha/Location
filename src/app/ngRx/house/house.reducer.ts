@@ -30,6 +30,20 @@ export function housesReducer(state= initState, action: Action): HouseState {
             return {...state, dataState:HousestateEnum.LOADED, houses:(<HousesActions>action).payload}
         case  HouseActionsTypes.GET_ALL_HOUSES_ERROR: 
             return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
+    
+        case HouseActionsTypes.GET_AVALAIBLE_HOUSES:
+            return {...state, dataState:HousestateEnum.LOADING}
+        case HouseActionsTypes.GET_AVALAIBLE_HOUSES_SUCCESS:
+             return {...state, dataState:HousestateEnum.LOADED, houses:(<HousesActions>action).payload}
+        case HouseActionsTypes.GET_AVALAIBLE_HOUSES_ERROR:
+            return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
+
+        case HouseActionsTypes.GET_UNAVALAIBLE_HOUSES:
+                return {...state, dataState:HousestateEnum.LOADING}
+        case HouseActionsTypes.GET_UNAVALAIBLE_HOUSES_SUCCESS:
+                 return {...state, dataState:HousestateEnum.LOADED, houses:(<HousesActions>action).payload}
+        case HouseActionsTypes.GET_UNAVALAIBLE_HOUSES_ERROR:
+                return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
         default : return {...state}
     }
 }

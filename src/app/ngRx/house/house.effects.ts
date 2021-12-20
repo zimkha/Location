@@ -3,7 +3,19 @@ import { HouseService } from 'src/app/services/house.service';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {Action} from '@ngrx/store';
-import { GetAllHouseActionError, GetAllHouseActionSuccess, HouseActionsTypes } from './house.actions';
+import { 
+    GetAllHouseActionError,
+    GetAllHouseActionSuccess, 
+    HouseActionsTypes, 
+    GetAvalaibleAction,
+    GetAvalaibleActionSuccess,
+    GetAvalaibleActionError, 
+    GetUnAvalaibleActionSuccess,
+    GetUnAvalaibleActionError,
+    SearchAction,
+    SearchActionSuccess, 
+    SearchActionError
+} from './house.actions';
 
 
 @Injectable()
@@ -22,4 +34,44 @@ export class HouseEffects {
             })
         )
     );
+    getAvalaibleHouseEffect: Observable<Action> =  createEffect(
+        () =>  this.effectAtions.pipe(
+            ofType(HouseActionsTypes.GET_AVALAIBLE_HOUSES),
+            mergeMap((action) => {
+                return this.houseService.getOneSelected()
+                    .pipe(
+                        map((houses) =>new GetAvalaibleActionSuccess(houses)),
+                        catchError((err) => of(new GetAvalaibleActionError(err.message)))
+                    )
+            })
+        )
+    );
+
+    getUnAvalaibleHouseEffect:Observable<Action> =  createEffect(
+        () =>  this.effectAtions.pipe(
+            ofType(HouseActionsTypes.GET_UNAVALAIBLE_HOUSES),
+            mergeMap((action) => {
+                return this.houseService.getUnSelected()
+                    .pipe(
+                        map((houses) =>new GetUnAvalaibleActionSuccess(houses)),
+                        catchError((err) => of(new GetUnAvalaibleActionError(err.message)))
+                    )
+            })
+        )
+    );
+
+    SearchHouseEffect :Observable<Action> =  createEffect(
+        () =>  this.effectAtions.pipe(
+            ofType(HouseActionsTypes.SEARCH_HOUSE),
+            mergeMap((action) => {
+                return this.houseService.getUnSelected()
+                    .pipe(
+                        map((houses) =>new SearchActionSuccess(houses)),
+                        catchError((err) => of(new SearchActionError(err.message)))
+                    )
+            })
+        )
+    );
+
+
 }

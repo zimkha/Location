@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { GetAllHouseAction } from 'src/app/ngRx/house/house.actions';
+import { GetAllHouseAction, GetAvalaibleAction, GetUnAvalaibleAction } from 'src/app/ngRx/house/house.actions';
 
 @Component({
   selector: 'app-house-nav-bar',
@@ -17,11 +17,11 @@ export class HouseNavBarComponent implements OnInit {
   onGetAllHouse() {
     this.store.dispatch(new GetAllHouseAction({}));
   }
-  onGetSelected() {
-
+  onAvalaible() {
+     this.store.dispatch(new GetAvalaibleAction({}))
   }
-  onGetNoSelected() {
-
+  onUnAvalaible() {
+    this.store.dispatch(new GetUnAvalaibleAction({}))
   }
   onSubmit(f: any) {
 
