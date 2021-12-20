@@ -1,0 +1,12 @@
+<div class="p-4">
+    <app-house-nav-bar></app-house-nav-bar>
+    <ng-container $ngSwitchCase="HouseStateEnum.INITIAL">
+        <div class="p-2"> Initial State</div>
+    </ng-container>
+    <ng-container $ngSwitchCase="HouseStateEnum.LOADING">
+        Loading...
+    </ng-container>
+    <ng-container $ngSwitchCase="HouseStateEnum.LOADED">
+       
+    </ng-container>
+</div>
