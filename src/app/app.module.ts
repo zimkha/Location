@@ -13,7 +13,10 @@ import { HouseListItemsComponent } from './components/houses/house-list-items/ho
 import { HousesComponent } from './components/houses/houses.component';
 import { housesReducer } from './ngRx/house/house.reducer';
 import { HouseEffects } from './ngRx/house/house.effects';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { AddHouseComponent } from './components/forms/add-house/add-house.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,7 @@ import { HouseEffects } from './ngRx/house/house.effects';
     HousesComponent,
     HouseNavBarComponent,
     HouseListItemsComponent,
- 
+    AddHouseComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,8 +33,13 @@ import { HouseEffects } from './ngRx/house/house.effects';
     StoreModule.forRoot({catalogState: housesReducer}),
     HttpClientModule,
     EffectsModule.forRoot([HouseEffects]),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    FormsModule,
+    CommonModule,
+    ModalModule.forRoot()
+    
   ],
+  entryComponents: [ AddHouseComponent ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [

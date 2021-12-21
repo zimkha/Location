@@ -86,7 +86,7 @@ export class GetUnAvalaibleActionError implements Action  {
 
 export class SearchAction implements Action {
     type: HouseActionsTypes = HouseActionsTypes.SEARCH_HOUSE;
-    constructor(public payload: any){}
+    constructor(public payload: string){}
 }
 
 export class SearchActionSuccess implements Action {

@@ -44,6 +44,13 @@ export function housesReducer(state= initState, action: Action): HouseState {
                  return {...state, dataState:HousestateEnum.LOADED, houses:(<HousesActions>action).payload}
         case HouseActionsTypes.GET_UNAVALAIBLE_HOUSES_ERROR:
                 return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
+
+        case HouseActionsTypes.SEARCH_HOUSE:
+                return {...state, dataState:HousestateEnum.LOADING}
+        case HouseActionsTypes.SEARCH_HOUSE_SUCCESS:
+                return {...state, dataState:HousestateEnum.LOADED, houses:(<HousesActions>action).payload}
+        case HouseActionsTypes.SEARCH_HOUSE_ERROR:
+                return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
         default : return {...state}
     }
 }

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { GetAllHouseAction, GetAvalaibleAction, GetUnAvalaibleAction } from 'src/app/ngRx/house/house.actions';
+import { GetAllHouseAction, GetAvalaibleAction, GetUnAvalaibleAction, SearchAction } from 'src/app/ngRx/house/house.actions';
+import { BsModalService} from 'ngx-bootstrap/modal';
+import {BsModalRef} from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
+import { AddHouseComponent } from '../../forms/add-house/add-house.component';
 @Component({
   selector: 'app-house-nav-bar',
   templateUrl: './house-nav-bar.component.html',
@@ -9,7 +12,8 @@ import { GetAllHouseAction, GetAvalaibleAction, GetUnAvalaibleAction } from 'src
 })
 export class HouseNavBarComponent implements OnInit {
 
-  constructor(private store: Store<any>) { }
+  modalRef?: BsModalRef
+  constructor(private store: Store<any>, private modalService: BsModalService) { }
 
   ngOnInit(): void {
   }
@@ -23,8 +27,13 @@ export class HouseNavBarComponent implements OnInit {
   onUnAvalaible() {
     this.store.dispatch(new GetUnAvalaibleAction({}))
   }
-  onSubmit(f: any) {
+  onSubmit(dataForm: any) {
+    console.log("je suis la")
+     this.store.dispatch(new SearchAction(dataForm.keyword))
+  }
 
+  openModal() {
+      this.modalRef = this.modalService.show(AddHouseComponent);
   }
 
 }

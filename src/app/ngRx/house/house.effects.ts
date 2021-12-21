@@ -14,7 +14,8 @@ import {
     GetUnAvalaibleActionError,
     SearchAction,
     SearchActionSuccess, 
-    SearchActionError
+    SearchActionError,
+    HousesActions
 } from './house.actions';
 
 
@@ -60,11 +61,13 @@ export class HouseEffects {
         )
     );
 
-    SearchHouseEffect :Observable<Action> =  createEffect(
+    /*  Search House Effect*/
+
+    SearchHouseEffect :Observable<HousesActions> =  createEffect(
         () =>  this.effectAtions.pipe(
             ofType(HouseActionsTypes.SEARCH_HOUSE),
-            mergeMap((action) => {
-                return this.houseService.getUnSelected()
+            mergeMap((action: HousesActions) => {
+                return this.houseService.onSearchHouse(action.payload)
                     .pipe(
                         map((houses) =>new SearchActionSuccess(houses)),
                         catchError((err) => of(new SearchActionError(err.message)))
