@@ -28,4 +28,8 @@ export class HouseService {
     public onSearchHouse(city: string): Observable<House[]> {
         return this._http.get<House[]>(this.apiUrl + "/houses?city_like="+city)
     }
+
+    public onSaveHouse(house: House): Observable<House> {
+        return this._http.post<House>(this.apiUrl +"/houses", house);
+    }
 }

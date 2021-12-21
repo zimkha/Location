@@ -33,6 +33,14 @@ export enum HouseActionsTypes {
   SEARCH_HOUSE_SUCCESS = "[Houses] search house success",
   SEARCH_HOUSE_ERROR = "[Houses] search  house error",
 
+  SAVE_HOUSE = "[Houses] save house",
+  SAVE_HOUSE_SUCCESS = "[Houses] save house success",
+  SAVE_HOUSE_ERROR = "[Houses] save  house error",
+
+  UPDATE_HOUSE = "[Houses] Update house",
+  UPDATE_HOUSE_SUCCESS = "[Houses] Update house success",
+  UPDATE_HOUSE_ERROR = "[Houses] Update  house error",
+
 }
 
 
@@ -98,8 +106,36 @@ export class SearchActionError implements Action {
     constructor(public payload: string){}
 }
 
+export class SaveHouse implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.SAVE_HOUSE;
+    constructor(public payload: any){}
+}
+export class SaveHouseSuccess implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.SAVE_HOUSE_SUCCESS;
+    constructor(public payload: House){}
+}
+export class SaveHouseError implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.SAVE_HOUSE_ERROR;
+    constructor(public payload: string){}
+}
+
+export class UpdateHouse implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.UPDATE_HOUSE;
+    constructor(public payload: any){}
+}
+export class UpdateHouseSuccess implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.UPDATE_HOUSE_SUCCESS;
+    constructor(public payload: House){}
+}
+export class UpdateHouseError implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.UPDATE_HOUSE_ERROR;
+    constructor(public payload: string){}
+}
+
 export type HousesActions = GetAllHouseAction | GetAllHouseActionSuccess | GetAllHouseActionError
     | GetAvalaibleAction | GetAvalaibleActionSuccess | GetAvalaibleActionError
     | GetUnAvalaibleAction | GetUnAvalaibleActionSuccess | GetUnAvalaibleActionError
     |SearchAction | SearchActionSuccess | SearchActionError
+    |SaveHouse | SaveHouseSuccess | SaveHouseError
+    |UpdateHouse | UpdateHouseSuccess | UpdateHouseError
 ;

@@ -1,112 +1,350 @@
 {
-    "houses": [
-      {"id": 1,"code": "H001", "avalaible": true, "city": "Dakar","nb_etage": 2,"nb_pieces": 10,"nb_sdb": 3,"nb_total_chambre": 3,
-        "rent_per_room": false,"garage": true,"price_location": 2500000,"locations": [{
-            "id": 1,
-            "code": "L001"
+  "houses": [
+    {
+      "id": 1,
+      "code": "H001",
+      "avalaible": true,
+      "city": "Dakar",
+      "nb_etage": 2,
+      "nb_pieces": 10,
+      "nb_sdb": 3,
+      "nb_total_chambre": 3,
+      "rent_per_room": false,
+      "garage": true,
+      "price_location": 2500000,
+      "locations": [
+        {
+          "id": 1,
+          "code": "L001"
         },
         {
-            "id": 1,
-            "code": "L002"
-           }],
-        "pool": true,"rooms": [{
-         "id": 1,
-         "code": "R001"
-        },
-        {
-            "id": 2,
-            "code": "R002"
-           }],"createdAt": "2021:12:12","updatedAt": "2021:12:12"
-        },
-           {"id": 2,"code": "H002","avalaible": false,"city": "Guédiawaye","nb_etage": 2,"nb_pieces": 10,"nb_sdb": 3,"nb_total_chambre": 3,
-            "rent_per_room": true,"garage": true,"price_location": 2500000,"locations": [{
-                "id": 3,
-                "code": "L003"
-            },
-            {
-                "id": 4,
-                "code": "L004"
-               }],
-            "pool": true,"rooms": [{
-             "id": 3,
-             "code": "R003"
-            },
-            {
-                "id": 4,
-                "code": "R004"
-               }],"createdAt": "2021:12:12","updatedAt": "2021:12:12"},
-               {"id": 3,"code": "H003","avalaible": false,"city": "Parcelles","nb_etage": 2,"nb_pieces": 10,"nb_sdb": 3,"nb_total_chambre": 3,
-                "rent_per_room": true,"garage": true,"price_location": 2500000,"locations": [{
-                    "id": 5,
-                    "code": "L005"
-                },
-                {
-                    "id": 6,
-                    "code": "L006"
-                   }],
-                "pool": true,"rooms": [{
-                 "id": 5,
-                 "code": "R005"
-                },
-                {
-                    "id": 6,
-                    "code": "R006"
-                   }],"createdAt": "2021:12:12","updatedAt": "2021:12:12"}
-
-    ],
-    "rooms" : [
-        {"id": 1,"code": "R001","locations": [
-            {
-                "id": 1
-            }
-        ],"home": {
-            "id": 1
-        },
-        "isFurniture": true,"available": true
-    },
-        {"id": 2,"code": "R002","locations": [
-            {
-                "id": 2
-            },
-            {
-                "id": 3
-            }
-        ],"home": {
-            "id": 2
-        },
-        "isFurniture": false,"available": false
-    },
-    {"id": 3,"code": "R003","locations": [
-        {
-            "id": 4
+          "id": 1,
+          "code": "L002"
         }
-    ],"home": {
-        "id": 1
+      ],
+      "pool": true,
+      "rooms": [
+        {
+          "id": 1,
+          "code": "R001"
+        },
+        {
+          "id": 2,
+          "code": "R002"
+        }
+      ],
+      "createdAt": "2021:12:12",
+      "updatedAt": "2021:12:12"
     },
-"isFurniture": true,"available": true
+    {
+      "id": 2,
+      "code": "H002",
+      "avalaible": false,
+      "city": "Guédiawaye",
+      "nb_etage": 2,
+      "nb_pieces": 10,
+      "nb_sdb": 3,
+      "nb_total_chambre": 3,
+      "rent_per_room": true,
+      "garage": true,
+      "price_location": 2500000,
+      "locations": [
+        {
+          "id": 3,
+          "code": "L003"
+        },
+        {
+          "id": 4,
+          "code": "L004"
+        }
+      ],
+      "pool": true,
+      "rooms": [
+        {
+          "id": 3,
+          "code": "R003"
+        },
+        {
+          "id": 4,
+          "code": "R004"
+        }
+      ],
+      "createdAt": "2021:12:12",
+      "updatedAt": "2021:12:12"
+    },
+    {
+      "id": 3,
+      "code": "H003",
+      "avalaible": false,
+      "city": "Parcelles",
+      "nb_etage": 2,
+      "nb_pieces": 10,
+      "nb_sdb": 3,
+      "nb_total_chambre": 3,
+      "rent_per_room": true,
+      "garage": true,
+      "price_location": 2500000,
+      "locations": [
+        {
+          "id": 5,
+          "code": "L005"
+        },
+        {
+          "id": 6,
+          "code": "L006"
+        }
+      ],
+      "pool": true,
+      "rooms": [
+        {
+          "id": 5,
+          "code": "R005"
+        },
+        {
+          "id": 6,
+          "code": "R006"
+        }
+      ],
+      "createdAt": "2021:12:12",
+      "updatedAt": "2021:12:12"
+    },
+    {
+      "id": 4,
+      "code": "H0R1",
+      "avalaible": true,
+      "city": "Rufisque",
+      "nb_etage": 2,
+      "nb_pieces": 10,
+      "nb_sdb": 3,
+      "nb_total_chambre": 3,
+      "rent_per_room": false,
+      "garage": true,
+      "price_location": 2500000,
+      "locations": [
+        {
+          "id": 1,
+          "code": "L001"
+        },
+        {
+          "id": 1,
+          "code": "L002"
+        }
+      ],
+      "pool": true,
+      "rooms": [
+        {
+          "id": 1,
+          "code": "R001"
+        },
+        {
+          "id": 2,
+          "code": "R002"
+        }
+      ],
+      "createdAt": "2021:12:12",
+      "updatedAt": "2021:12:12"
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "code": "R001",
+      "locations": [
+        {
+          "id": 1
+        }
+      ],
+      "home": {
+        "id": 1
+      },
+      "isFurniture": true,
+      "available": true
+    },
+    {
+      "id": 2,
+      "code": "R002",
+      "locations": [
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ],
+      "home": {
+        "id": 2
+      },
+      "isFurniture": false,
+      "available": false
+    },
+    {
+      "id": 3,
+      "code": "R003",
+      "locations": [
+        {
+          "id": 4
+        }
+      ],
+      "home": {
+        "id": 1
+      },
+      "isFurniture": true,
+      "available": true
+    }
+  ],
+  "appartements": [
+    {
+      "id": 1,
+      "code": "A001",
+      "city": "Parcelles",
+      "nbr_chambre_simple": 4,
+      "styleAppartement": true,
+      "nbr_csd": 1,
+      "nbr_cuisine": 1,
+      "toillete": 1,
+      "isTaked": true,
+      "locations": [
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "A002",
+      "city": "Yoof",
+      "nbr_chambre_simple": 3,
+      "styleAppartement": true,
+      "nbr_csd": 1,
+      "nbr_cuisine": 1,
+      "toillete": 1,
+      "isTaked": false,
+      "locations": [
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "code": "A003",
+      "city": "Almadies",
+      "nbr_chambre_simple": 3,
+      "styleAppartement": true,
+      "nbr_csd": 1,
+      "nbr_cuisine": 1,
+      "toillete": 1,
+      "isTaked": true,
+      "locations": [
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "code": "A004",
+      "city": "Dakar",
+      "nbr_chambre_simple": 3,
+      "styleAppartement": true,
+      "nbr_csd": 1,
+      "nbr_cuisine": 1,
+      "toillete": 1,
+      "isTaked": true,
+      "locations": [
+        {
+          "id": 3
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "code": "L001",
+      "date_start": "2021:01:01",
+      "base_price": 120000,
+      "caution": 300000,
+      "isProgress": true,
+      "appartement": {
+        "id": 1
+      },
+      "home": {},
+      "room": {},
+      "contrat": {
+        "id": 1
+      },
+      "payments": [
+        {
+          "id": 1,
+          "account": 12000
+        }
+      ],
+      "available": true
+    },
+    {
+      "id": 1,
+      "code": "L002",
+      "date_start": "2021:01:02",
+      "base_price": 50000,
+      "caution": 100000,
+      "isProgress": true,
+      "appartement": {},
+      "home": {},
+      "room": {
+        "id": 1
+      },
+      "contrat": {
+        "id": 2
+      },
+      "payments": [
+        {
+          "id": 2,
+          "account": 50000
+        }
+      ],
+      "available": false
+    },
+    {
+      "id": 1,
+      "code": "L003",
+      "date_start": "2021:01:03",
+      "base_price": 750000,
+      "caution": 1500000,
+      "isProgress": true,
+      "appartement": {},
+      "home": {
+        "id": 1
+      },
+      "room": {},
+      "contrat": {
+        "id": 3
+      },
+      "payments": [
+        {
+          "id": 3,
+          "account": 750000
+        }
+      ],
+      "available": true
+    }
+  ],
+  "contrats": [
+    {
+      "id": 1,
+      "code": "CR001"
+    },
+    {
+      "id": 2,
+      "code": "CR002"
+    },
+    {
+      "id": 3,
+      "code": "CR003"
+    },
+    {
+      "id": 4,
+      "code": "CR004"
+    }
+  ]
 }
-
-    ],
-    "appartements": [
-        {"id": 1,"code": "A001","city": "Parcelles","nbr_chambre_simple": 4,"styleAppartement": true,  "nbr_csd": 1, "nbr_cuisine": 1, "toillete":1, "isTaked": true, "locations": [{"id": 3}]},
-        {"id": 2,"code": "A002","city": "Yoof","nbr_chambre_simple": 3,"styleAppartement": true, "nbr_csd": 1, "nbr_cuisine": 1, "toillete":1, "isTaked": false, "locations": [{"id": 3}]},
-        {"id": 3,"code": "A003","city": "Almadies","nbr_chambre_simple": 3,"styleAppartement": true, "nbr_csd": 1, "nbr_cuisine": 1, "toillete":1, "isTaked": true, "locations": [{"id": 3}]},
-        {"id": 4,"code": "A004","city": "Dakar","nbr_chambre_simple": 3,"styleAppartement": true, "nbr_csd": 1, "nbr_cuisine": 1, "toillete":1, "isTaked": true, "locations": [{"id": 3}]}
-
-
-    ],
-    "locations": [
-        {"id": 1,"code": "L001","date_start": "2021:01:01","base_price": 120000,"caution": 300000, "isProgress": true, "appartement": {"id": 1}, "home": {}, "room": {}, "contrat": {"id": 1}, "payments": [{"id": 1, "account": 12000}], "available": true},
-        {"id": 1,"code": "L002","date_start": "2021:01:02","base_price": 50000,"caution": 100000, "isProgress": true, "appartement": {}, "home": {}, "room": {"id": 1}, "contrat": {"id": 2}, "payments": [{"id": 2, "account": 50000}], "available": false},
-        {"id": 1,"code": "L003","date_start": "2021:01:03","base_price": 750000,"caution": 1500000, "isProgress": true, "appartement": {}, "home": {"id": 1}, "room": {}, "contrat": {"id": 3}, "payments": [{"id": 3, "account": 750000}], "available": true}
-
-
-    ],
-
-    "contrats": [
-        {"id": 1, "code": "CR001"},
-        {"id": 2, "code": "CR002"},
-        {"id": 3, "code": "CR003"},
-        {"id": 4, "code": "CR004"}
-    ]
-  }
