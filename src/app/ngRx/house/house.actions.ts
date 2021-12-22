@@ -136,7 +136,7 @@ export class DeleteHouse implements Action {
 }
 export class DeleteHouseSuccess implements Action {
     type: HouseActionsTypes = HouseActionsTypes.DELETE_HOUSE_SUCCESS;
-    constructor(public payload: House){}
+    constructor(public payload: House ){}
 }
 export class DeleteHouseError implements Action {
     type: HouseActionsTypes = HouseActionsTypes.DELETE_HOUSE_ERROR;
