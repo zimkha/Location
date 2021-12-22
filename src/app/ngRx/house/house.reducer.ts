@@ -7,7 +7,9 @@ export enum HousestateEnum {
     LOADING="Loading",
     LOADED="Loaded",
     ERROR="Error",
-    INITIAL="Initial"
+    INITIAL="Initial",
+    NEW="NEW",
+    EDIT="EDIT "
 }
 
 export interface HouseState {
@@ -50,6 +52,15 @@ export function housesReducer(state= initState, action: Action): HouseState {
         case HouseActionsTypes.SEARCH_HOUSE_SUCCESS:
                 return {...state, dataState:HousestateEnum.LOADED, houses:(<HousesActions>action).payload}
         case HouseActionsTypes.SEARCH_HOUSE_ERROR:
+                return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
+
+        case HouseActionsTypes.CREATE_HOUSES:
+                return {...state, dataState:HousestateEnum.LOADING}
+        case HouseActionsTypes.CREATE_HOUSES_SUCCESS:
+                 let h: House[] = [...state.houses];
+                 h.push((<HousesActions>action).payload)
+                return {...state, dataState:HousestateEnum.LOADED, houses:h}
+        case HouseActionsTypes.CREATE_HOUSES_ERROR:
                 return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
         default : return {...state}
     }

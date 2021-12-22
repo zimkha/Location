@@ -33,10 +33,6 @@ export enum HouseActionsTypes {
   SEARCH_HOUSE_SUCCESS = "[Houses] search house success",
   SEARCH_HOUSE_ERROR = "[Houses] search  house error",
 
-  SAVE_HOUSE = "[Houses] save house",
-  SAVE_HOUSE_SUCCESS = "[Houses] save house success",
-  SAVE_HOUSE_ERROR = "[Houses] save  house error",
-
   UPDATE_HOUSE = "[Houses] Update house",
   UPDATE_HOUSE_SUCCESS = "[Houses] Update house success",
   UPDATE_HOUSE_ERROR = "[Houses] Update  house error",
@@ -106,16 +102,18 @@ export class SearchActionError implements Action {
     constructor(public payload: string){}
 }
 
-export class SaveHouse implements Action {
-    type: HouseActionsTypes = HouseActionsTypes.SAVE_HOUSE;
+
+
+export class CreateHouse implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.CREATE_HOUSES;
     constructor(public payload: any){}
 }
-export class SaveHouseSuccess implements Action {
-    type: HouseActionsTypes = HouseActionsTypes.SAVE_HOUSE_SUCCESS;
+export class CreateHouseSuccess implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.CREATE_HOUSES_SUCCESS;
     constructor(public payload: House){}
 }
-export class SaveHouseError implements Action {
-    type: HouseActionsTypes = HouseActionsTypes.SAVE_HOUSE_ERROR;
+export class CreateHouseError implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.CREATE_HOUSES_ERROR;
     constructor(public payload: string){}
 }
 
@@ -132,10 +130,24 @@ export class UpdateHouseError implements Action {
     constructor(public payload: string){}
 }
 
+export class DeleteHouse implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.DELETE_HOUSE;
+    constructor(public payload: any){}
+}
+export class DeleteHouseSuccess implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.DELETE_HOUSE_SUCCESS;
+    constructor(public payload: House){}
+}
+export class DeleteHouseError implements Action {
+    type: HouseActionsTypes = HouseActionsTypes.DELETE_HOUSE_ERROR;
+    constructor(public payload: string){}
+}
+
 export type HousesActions = GetAllHouseAction | GetAllHouseActionSuccess | GetAllHouseActionError
     | GetAvalaibleAction | GetAvalaibleActionSuccess | GetAvalaibleActionError
     | GetUnAvalaibleAction | GetUnAvalaibleActionSuccess | GetUnAvalaibleActionError
     |SearchAction | SearchActionSuccess | SearchActionError
-    |SaveHouse | SaveHouseSuccess | SaveHouseError
+    |CreateHouse | CreateHouseSuccess | CreateHouseError
     |UpdateHouse | UpdateHouseSuccess | UpdateHouseError
+    |DeleteHouse | DeleteHouseSuccess | DeleteHouseError
 ;

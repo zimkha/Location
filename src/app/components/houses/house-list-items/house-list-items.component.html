@@ -10,11 +10,11 @@
             <th scope="col">Price</th>
             <th scope="col">Par/Chambre</th>
             <th scope="col">garage</th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
    <tbody>
-    <tr align="center" *ngFor="let h of state.houses">
+    <tr align="center" *ngFor="let h of state.houses | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalRecord }">
         <td>{{h.id}}</td>
         <td>{{h.code}}</td>
         <td>{{h.city}}</td>
@@ -36,6 +36,19 @@
                 <span *ngIf="!h.garage" class="badge badge-info">No</span>
            </button>
         </td>
+        <td>
+            <button class="btn btn-sm btn-danger myspace" (click)="onDelete(h)">
+                <i class="fa fa-trash"></i>
+            </button>
+            <button class="btn btn-sm btn-primary myspace">
+                <i class="fa fa-pencil"></i>
+            </button>
+        </td>
     </tr>
    </tbody>
 </table>
+<div class="row">
+    <div class="col-xs-12 col-12">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>

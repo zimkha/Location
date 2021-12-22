@@ -28,7 +28,6 @@ export class HouseNavBarComponent implements OnInit {
     this.store.dispatch(new GetUnAvalaibleAction({}))
   }
   onSubmit(dataForm: any) {
-    console.log("je suis la")
      this.store.dispatch(new SearchAction(dataForm.keyword))
   }
 

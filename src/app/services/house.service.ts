@@ -32,4 +32,10 @@ export class HouseService {
     public onSaveHouse(house: House): Observable<House> {
         return this._http.post<House>(this.apiUrl +"/houses", house);
     }
+
+    public onUpdate(house: House): Observable<House> {
+        return this._http.put<House>(environment.host+"/houses/"+house.id,house);
+    }
+
+  
 }

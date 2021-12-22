@@ -1,5 +1,5 @@
 
-  
+<div >
     <div class="myComponent">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,42 +9,42 @@
               </button>
             </div>
             <div class="modal-body">
-                <form   #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm.value)">
+                <form [formGroup]="houseFormGroup"  #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm.value)">
                     <div class="row">
                       <div class="form-group col-md-6">
                         <label for="inputEmail4">Code</label>
-                        <input type="email" class="form-control" id="inputEmail4" ngModel name="code" placeholder="Code">
+                        <input type="text" class="form-control" formControlName="code" [ngClass]="{'is-ivalid': submitted }"   placeholder="Code" >
                       </div>
                       <div class="form-group col-md-6">
                         <label for="inputPassword4">City</label>
-                        <input type="password" class="form-control" id="inputPassword4" ngModel name="city" placeholder="City">
+                        <input type="text" class="form-control" id="inputPassword4" formControlName="city" [ngClass]="{'is-ivalid': submitted }" placeholder="City">
                       </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="inputAddress">Etage</label>
-                            <input type="number" class="form-control" min="0" value="0" id="inputAddress" ngModel name="nb_etage" placeholder="nbr étage">
+                            <input type="number" class="form-control" min="0" value="0" formControlName="nb_etage" [ngClass]="{'is-ivalid': submitted }" placeholder="nbr étage">
                           </div>
                           <div class="form-group col-md-4">
                             <label for="inputAddress">Pieces</label>
-                            <input type="number" class="form-control" min="2" value="0" id="inputAddress" ngModel name="nb_pieces" placeholder="nbr piéces">
+                            <input type="number" class="form-control" min="2" value="0" formControlName="nb_pieces" [ngClass]="{'is-ivalid': submitted }" placeholder="nbr piéces">
                           </div>
                           <div class="form-group col-md-4">
                             <label for="inputAddress">SDB</label>
-                            <input type="number" class="form-control" min="0" value="0" id="inputAddress" ngModel name="nb_sdb" placeholder="nbr salle de bain">
+                            <input type="number" class="form-control" min="0"formControlName="nb_sdb" [ngClass]="{'is-ivalid': submitted }" placeholder="nbr salle de bain">
                           </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="inputAddress2">Prix location</label>
-                            <input type="text" class="form-control" id="inputAddress2" ngModel name="price_location" placeholder="Prix de la location">
+                            <input type="text" class="form-control"  formControlName="price_location" [ngClass]="{'is-ivalid': submitted }" placeholder="Prix de la location">
                         </div>
                         <div class="form-group col-md-3 p-4">
-                            <input class="form-check-input " type="checkbox" value="" ngModel name="rent_per_room">
+                            <input class="form-check-input " type="checkbox" value=""  formControlName="rent_per_room" >
                             <label for="inputAddress2">Louer / chambre </label>
                         </div>
                         <div class="form-group col-md-3 p-4 ">
-                            <input class="form-check-input " type="checkbox" value=""  ngModel name="garage">
+                            <input class="form-check-input " type="checkbox" value=""  formControlName="garage" >
                             <label for="inputAddress2">Garage</label>
                         </div>
                     </div>
@@ -55,4 +55,7 @@
            
           </div>
     </div>
+  </div>
+
+  
   

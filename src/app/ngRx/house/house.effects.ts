@@ -15,7 +15,9 @@ import {
     SearchAction,
     SearchActionSuccess, 
     SearchActionError,
-    HousesActions
+    HousesActions,
+    CreateHouseSuccess,
+    CreateHouseError
 } from './house.actions';
 
 
@@ -75,6 +77,19 @@ export class HouseEffects {
             })
         )
     );
+
+    SaveHouseEffect: Observable<HousesActions> = createEffect(
+        () => this.effectAtions.pipe(
+            ofType(HouseActionsTypes.CREATE_HOUSES),
+            mergeMap((action: HousesActions) => {
+                return this.houseService.onSaveHouse(action.payload)
+                .pipe(
+                    map((house) => new CreateHouseSuccess(house)),
+                    catchError((err) => of(new CreateHouseError(err.message)))
+                )
+            })
+        )
+    )
 
 
 }

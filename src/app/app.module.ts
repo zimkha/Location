@@ -13,10 +13,13 @@ import { HouseListItemsComponent } from './components/houses/house-list-items/ho
 import { HousesComponent } from './components/houses/houses.component';
 import { housesReducer } from './ngRx/house/house.reducer';
 import { HouseEffects } from './ngRx/house/house.effects';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AddHouseComponent } from './components/forms/add-house/add-house.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -34,9 +37,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HttpClientModule,
     EffectsModule.forRoot([HouseEffects]),
     StoreDevtoolsModule.instrument(),
-    FormsModule,
+    FormsModule,  ReactiveFormsModule,
     CommonModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    PaginationModule,
+    NgxPaginationModule
     
   ],
   entryComponents: [ AddHouseComponent ],
