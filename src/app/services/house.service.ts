@@ -37,5 +37,9 @@ export class HouseService {
         return this._http.put<House>(environment.host+"/houses/"+house.id,house);
     }
 
+    public onDelete(id: number): Observable<void> {
+        return this._http.delete<void>(environment.host + "/houses/"+id);
+    }
+
   
 }

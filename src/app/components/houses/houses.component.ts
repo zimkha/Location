@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { HouseState, HousestateEnum } from 'src/app/ngRx/house/house.reducer';
 import {map} from 'rxjs/operators';
+import { GetAllHouseAction } from 'src/app/ngRx/house/house.actions';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class HousesComponent implements OnInit {
   constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
+    this.store.dispatch(new GetAllHouseAction({}));
     this.houseState$= this.store.pipe(
       map((state) => state.catalogState)
     );

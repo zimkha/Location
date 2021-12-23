@@ -15,13 +15,15 @@ export enum HousestateEnum {
 export interface HouseState {
     houses: House[],
     errorMessage: string,
-    dataState: HousestateEnum
+    dataState: HousestateEnum,
+    currentHouse: House | null
 }
 
 const initState: HouseState = {
     houses: [],
     errorMessage: "",
-    dataState: HousestateEnum.INITIAL
+    dataState: HousestateEnum.INITIAL,
+    currentHouse: null
 }
 
 export function housesReducer(state= initState, action: Action): HouseState {
@@ -62,6 +64,25 @@ export function housesReducer(state= initState, action: Action): HouseState {
                 return {...state, dataState:HousestateEnum.LOADED, houses:h}
         case HouseActionsTypes.CREATE_HOUSES_ERROR:
                 return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
+
+        case HouseActionsTypes.DELETE_HOUSE:
+            return {...state, dataState:HousestateEnum.LOADING}
+        case HouseActionsTypes.DELETE_HOUSE_SUCCESS:
+            let item: House=(<HousesActions>action).payload;
+            let index = state.houses.indexOf(item);
+            let list = [...state.houses];
+            list.splice(index, 1);
+            return {...state, dataState:HousestateEnum.LOADED, houses:list}
+        case HouseActionsTypes.DELETE_HOUSE_ERROR:
+            return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
+
+        case HouseActionsTypes.UPDATE_HOUSE:
+                return {...state, dataState:HousestateEnum.LOADING}
+        case HouseActionsTypes.UPDATE_HOUSE_SUCCESS:
+                return {...state, dataState:HousestateEnum.LOADED, currentHouse:(<HousesActions>action).payload}
+        case HouseActionsTypes.UPDATE_HOUSE_ERROR:
+                return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
+
         default : return {...state}
     }
 }

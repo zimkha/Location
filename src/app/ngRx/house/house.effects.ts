@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HouseService } from 'src/app/services/house.service';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {act, Actions, createEffect, ofType} from '@ngrx/effects';
 import {Action} from '@ngrx/store';
 import { 
     GetAllHouseActionError,
@@ -17,7 +17,11 @@ import {
     SearchActionError,
     HousesActions,
     CreateHouseSuccess,
-    CreateHouseError
+    CreateHouseError,
+    DeleteHouseSuccess,
+    DeleteHouseError,
+    UpdateHouseSuccess,
+    UpdateHouseError
 } from './house.actions';
 
 
@@ -89,7 +93,33 @@ export class HouseEffects {
                 )
             })
         )
-    )
+    );
+
+    DeleteHouseEffect: Observable<HousesActions> = createEffect(
+        ()=> this.effectAtions.pipe(
+            ofType(HouseActionsTypes.DELETE_HOUSE),
+            mergeMap((action: HousesActions) => {
+                return this.houseService.onDelete(action.payload.id)
+                    .pipe(
+                        map(() => new DeleteHouseSuccess(action.payload)),
+                        catchError((err) => of(new DeleteHouseError(err.message)))
+                    )
+            })
+        )
+    );
+
+    updateHouseEffect: Observable<HousesActions> =createEffect(
+        () => this.effectAtions.pipe(
+            ofType(HouseActionsTypes.UPDATE_HOUSE),
+            mergeMap((action: HousesActions) => {
+                return this.houseService.getOneHouseById(action.payload.id)
+                    .pipe(
+                        map((house) => new UpdateHouseSuccess(house)),
+                        catchError((err) => of(new UpdateHouseError(err.message)))
+                    )
+            })
+        )
+    );
 
 
 }

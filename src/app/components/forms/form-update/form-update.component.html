@@ -1,0 +1,61 @@
+
+<div >
+    <div class="myComponent">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Update house</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Code</label>
+                        <input type="text" class="form-control"  placeholder="Code" >
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">City</label>
+                        <input type="text" class="form-control"  placeholder="City">
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Etage</label>
+                            <input type="number" class="form-control" min="0" value="0"  placeholder="nbr étage">
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="inputAddress">Pieces</label>
+                            <input type="number" class="form-control" min="2" value="0"  placeholder="nbr piéces">
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="inputAddress">SDB</label>
+                            <input type="number" class="form-control" min="0" placeholder="nbr salle de bain">
+                          </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2">Prix location</label>
+                            <input type="text" class="form-control"   placeholder="Prix de la location">
+                        </div>
+                        <div class="form-group col-md-3 p-4">
+                            <input class="form-check-input " type="checkbox" value=""   >
+                            <label for="inputAddress2">Louer / chambre </label>
+                        </div>
+                        <div class="form-group col-md-3 p-4 ">
+                            <input class="form-check-input " type="checkbox" value=""  formControlName="garage" >
+                            <label for="inputAddress2">Garage</label>
+                        </div>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary" >Valider</button>
+                  </form>
+            </div>
+           
+          </div>
+    </div>
+  </div>
+
+  
+  

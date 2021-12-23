@@ -27,20 +27,22 @@
                  <span class="badge badge-success">Yes</span>
             </button>
             <button *ngIf="!h.rent_per_room" class="btn btn-sm btn btn-danger">
-                <span class="badge badge-danger">No</span>
+                <span >No</span>
            </button>
          </td>
         <td>
-           <button class="btn btn-sm btn btn-success">
-                <span *ngIf="h.garage" class="badge badge-success">Yes</span>
-                <span *ngIf="!h.garage" class="badge badge-info">No</span>
+           <button *ngIf="h.garage" class="btn btn-sm btn btn-success">
+                <span >Yes</span>
            </button>
+           <button *ngIf="!h.garage"  class="btn btn-sm btn btn-danger">
+            <span >No</span>
+       </button>
         </td>
         <td>
             <button class="btn btn-sm btn-danger myspace" (click)="onDelete(h)">
                 <i class="fa fa-trash"></i>
             </button>
-            <button class="btn btn-sm btn-primary myspace">
+            <button class="btn btn-sm btn-primary myspace" (click)="openModal(h)" >
                 <i class="fa fa-pencil"></i>
             </button>
         </td>

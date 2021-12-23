@@ -145,17 +145,6 @@
       "updatedAt": "2021:12:12"
     },
     {
-      "code": "H00A",
-      "city": "Pikine",
-      "price_location": "25000",
-      "nb_etage": 1,
-      "nb_sdb": 1,
-      "nb_pieces": 4,
-      "rent_per_room": false,
-      "garage": true,
-      "id": 5
-    },
-    {
       "code": "C10BG",
       "city": "Point E",
       "price_location": "50000",
@@ -167,15 +156,26 @@
       "id": 6
     },
     {
-      "code": "CDF",
+      "code": "Cd001",
       "city": "Nord Foir",
-      "price_location": "25000",
-      "nb_etage": 1,
-      "nb_sdb": 2,
-      "nb_pieces": 5,
+      "price_location": "175000",
+      "nb_etage": 3,
+      "nb_sdb": 3,
+      "nb_pieces": 12,
       "rent_per_room": false,
       "garage": true,
       "id": 7
+    },
+    {
+      "code": "H005",
+      "city": "Cité Douane",
+      "price_location": "35000",
+      "nb_etage": 1,
+      "nb_sdb": 1,
+      "nb_pieces": 5,
+      "rent_per_room": true,
+      "garage": false,
+      "id": 8
     }
   ],
   "rooms": [
