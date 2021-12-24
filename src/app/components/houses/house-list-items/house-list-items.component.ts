@@ -54,7 +54,7 @@ export class HouseListItemsComponent implements OnInit {
   }
 
   openModal(house: House) {
-    this.modalRef = this.modalService.show(FormUpdateComponent);
+    this.modalRef = this.modalService.show(FormUpdateComponent, house);
 }
 
 

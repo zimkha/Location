@@ -9,7 +9,7 @@ export enum HousestateEnum {
     ERROR="Error",
     INITIAL="Initial",
     NEW="NEW",
-    EDIT="EDIT "
+    EDIT="EDIT"
 }
 
 export interface HouseState {

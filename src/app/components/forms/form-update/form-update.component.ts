@@ -19,11 +19,13 @@ export class FormUpdateComponent implements OnInit {
   constructor(public modalRef: BsModalRef, private fb:FormBuilder, private houseService: HouseService, private store: Store<any>) { }
 
   ngOnInit(): void {
+    
     this.store.subscribe(state => {
+      console.log("je suis la")
       this.state = state.catalogState;
       if(this.state?.dataState ==this.HouseStateEnum.LOADED){
            if(this.state.currentHouse!=null) {
-             console.log("je suis la")
+            
             this.houseUpdateFormGroup = this.fb.group({
               code: [this.state?.currentHouse?.code, Validators.required],
               city:[this.state?.currentHouse?.city, Validators.required],
@@ -39,7 +41,7 @@ export class FormUpdateComponent implements OnInit {
       }
     })
 
-    console.log(this.state?.currentHouse);
+  
   }
 
 }
