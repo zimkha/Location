@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { House } from 'src/app/models/house.model';
 import { HouseState, HousestateEnum } from 'src/app/ngRx/house/house.reducer';
 import { HouseService } from 'src/app/services/house.service';
-
+import { Subject, BehaviorSubject } from "rxjs";
 @Component({
   selector: 'app-form-update',
   templateUrl: './form-update.component.html',
@@ -12,17 +13,19 @@ import { HouseService } from 'src/app/services/house.service';
 })
 export class FormUpdateComponent implements OnInit {
 
+  @Input() _house: House | null=null;
   houseUpdateFormGroup!: FormGroup;
   state: HouseState|null=null; 
-  houseID!: number;
   readonly HouseStateEnum = HousestateEnum;
+  subject$ = new Subject();
   constructor(public modalRef: BsModalRef, private fb:FormBuilder, private houseService: HouseService, private store: Store<any>) { }
 
   ngOnInit(): void {
     
     this.store.subscribe(state => {
-      console.log("je suis la")
+      console.log(this.subject$);
       this.state = state.catalogState;
+      console.log("je suis la", this.state?.currentHouse)
       if(this.state?.dataState ==this.HouseStateEnum.LOADED){
            if(this.state.currentHouse!=null) {
             

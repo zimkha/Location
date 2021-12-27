@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HouseState } from 'src/app/ngRx/house/house.reducer'; 
+import { HouseState, HousestateEnum } from 'src/app/ngRx/house/house.reducer'; 
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { House } from 'src/app/models/house.model';
 import { Store } from '@ngrx/store';
@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { FormUpdateComponent } from '../../forms/form-update/form-update.component';
 import {BsModalRef} from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { Subject, BehaviorSubject } from "rxjs";
 
 @Component({
   selector: 'app-house-list-items',
@@ -21,6 +22,7 @@ export class HouseListItemsComponent implements OnInit {
   totalRecord!: number;
   page: number= 1;
   modalRef?: BsModalRef;
+ 
   constructor(private store: Store<any> , private modalService: BsModalService){ }
  
   ngOnInit(): void {
@@ -54,7 +56,16 @@ export class HouseListItemsComponent implements OnInit {
   }
 
   openModal(house: House) {
-    this.modalRef = this.modalService.show(FormUpdateComponent, house);
+  const  subject = new BehaviorSubject(house);
+  console.log(subject);
+    // this.subject$.subscribe(val => {
+    //   console.log(val, "ok")
+    // })
+    // this.subject$.next(house)
+    // this.subject$.complete();
+    const subscription = subject.subscribe(); 
+    console.log(this.state.dataState);
+    this.modalRef = this.modalService.show(FormUpdateComponent );
 }
 
 

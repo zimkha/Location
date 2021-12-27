@@ -145,17 +145,6 @@
       "updatedAt": "2021:12:12"
     },
     {
-      "code": "C10BG",
-      "city": "Point E",
-      "price_location": "50000",
-      "nb_etage": 2,
-      "nb_sdb": 3,
-      "nb_pieces": 10,
-      "rent_per_room": true,
-      "garage": true,
-      "id": 6
-    },
-    {
       "code": "Cd001",
       "city": "Nord Foir",
       "price_location": "175000",
