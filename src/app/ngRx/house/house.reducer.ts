@@ -9,7 +9,8 @@ export enum HousestateEnum {
     ERROR="Error",
     INITIAL="Initial",
     NEW="NEW",
-    EDIT="EDIT"
+    EDIT="EDIT",
+    UPDATED="UPDATED",
 }
 
 export interface HouseState {
@@ -79,7 +80,7 @@ export function housesReducer(state= initState, action: Action): HouseState {
         case HouseActionsTypes.UPDATE_HOUSE:
                 return {...state, dataState:HousestateEnum.LOADING}
         case HouseActionsTypes.UPDATE_HOUSE_SUCCESS:
-                return {...state, dataState:HousestateEnum.LOADED, currentHouse:(<HousesActions>action).payload}
+                return {...state, dataState:HousestateEnum.UPDATED, currentHouse:(<HousesActions>action).payload}
         case HouseActionsTypes.UPDATE_HOUSE_ERROR:
                 return {...state, dataState:HousestateEnum.ERROR, errorMessage:(<HousesActions>action).payload}
 

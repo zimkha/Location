@@ -119,7 +119,7 @@ export class CreateHouseError implements Action {
 
 export class UpdateHouse implements Action {
     type: HouseActionsTypes = HouseActionsTypes.UPDATE_HOUSE;
-    constructor(public payload: any){}
+    constructor(public payload: number){}
 }
 export class UpdateHouseSuccess implements Action {
     type: HouseActionsTypes = HouseActionsTypes.UPDATE_HOUSE_SUCCESS;

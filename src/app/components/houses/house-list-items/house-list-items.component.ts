@@ -9,6 +9,7 @@ import { FormUpdateComponent } from '../../forms/form-update/form-update.compone
 import {BsModalRef} from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { Subject, BehaviorSubject } from "rxjs";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-house-list-items',
@@ -22,8 +23,8 @@ export class HouseListItemsComponent implements OnInit {
   totalRecord!: number;
   page: number= 1;
   modalRef?: BsModalRef;
- 
-  constructor(private store: Store<any> , private modalService: BsModalService){ }
+  subject$ = new Subject();
+  constructor(private store: Store<any> , private modalService: BsModalService, private router: Router){ }
  
   ngOnInit(): void {
     this.totalRecord = this.state.houses.length;
@@ -56,17 +57,13 @@ export class HouseListItemsComponent implements OnInit {
   }
 
   openModal(house: House) {
-  const  subject = new BehaviorSubject(house);
-  console.log(subject);
-    // this.subject$.subscribe(val => {
-    //   console.log(val, "ok")
-    // })
-    // this.subject$.next(house)
-    // this.subject$.complete();
-    const subscription = subject.subscribe(); 
-    console.log(this.state.dataState);
+   
     this.modalRef = this.modalService.show(FormUpdateComponent );
 }
+
+  onEdit(houseId: number) {
+      this.router.navigateByUrl("/edit/"+ houseId);
+  }
 
 
 }

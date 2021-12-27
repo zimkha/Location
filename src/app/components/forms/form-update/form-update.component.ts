@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { House } from 'src/app/models/house.model';
@@ -18,14 +18,14 @@ export class FormUpdateComponent implements OnInit {
   state: HouseState|null=null; 
   readonly HouseStateEnum = HousestateEnum;
   subject$ = new Subject();
+  
   constructor(public modalRef: BsModalRef, private fb:FormBuilder, private houseService: HouseService, private store: Store<any>) { }
 
   ngOnInit(): void {
     
     this.store.subscribe(state => {
-      console.log(this.subject$);
+      console.log(this.subject$, "je suis la");
       this.state = state.catalogState;
-      console.log("je suis la", this.state?.currentHouse)
       if(this.state?.dataState ==this.HouseStateEnum.LOADED){
            if(this.state.currentHouse!=null) {
             
@@ -44,7 +44,11 @@ export class FormUpdateComponent implements OnInit {
       }
     })
 
+    
   
+  }
+  onSubmitUpdate() {
+      
   }
 
 }

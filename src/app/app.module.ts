@@ -19,6 +19,7 @@ import { AddHouseComponent } from './components/forms/add-house/add-house.compon
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditHousesComponent } from './components/houses/edit-houses/edit-houses.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HouseNavBarComponent,
     HouseListItemsComponent,
     AddHouseComponent,
+    EditHousesComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     EffectsModule.forRoot([HouseEffects]),
     StoreDevtoolsModule.instrument(),
-    FormsModule,  ReactiveFormsModule,
+    FormsModule,  
+    ReactiveFormsModule,
     CommonModule,
     ModalModule.forRoot(),
     PaginationModule,
