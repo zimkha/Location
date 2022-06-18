@@ -25,8 +25,8 @@ export class ApartmentService {
       public getUnAvalaibleApartment() : Observable<Apartment[]>{
         return  this._http.get<Apartment[]>(this.apiUrl + "/appartements?avalaible=false");
       } 
-      public deleteOneApartment(id: number): Observable<void>{
-          return this._http.delete<void>(this.apiUrl + "appartements/" +id)
+      public deleteOneApartment(id: number): Observable<any>{
+          return this._http.delete<any>(this.apiUrl + "appartements/" +id)
       }
       public onSave(apartment: Apartment): Observable<Apartment> {
         return this._http.post<Apartment>(this.apiUrl +"/appartements", apartment);

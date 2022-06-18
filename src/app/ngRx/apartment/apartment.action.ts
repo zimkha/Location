@@ -149,7 +149,7 @@ export class UpdateOneApartmentError implements Action {
 
 
 
-export type ApartmentAction = GetAllApartment |GetAllApartmentActionSuccess | GetAllApartmentActionError
+export type ApartmentActions = GetAllApartment |GetAllApartmentActionSuccess | GetAllApartmentActionError
                             | GetAvailableApartment | GetAvailableApartmentSuccess | GetAvailableApartmentError
                             | CreateApartment | CreateApartmentSuccess | CreateApartmentError
                             | GetUnAvalaibleApartment | GetUnAvalaibleApartmentSuccess | GetUnAvalaibleApartmentError

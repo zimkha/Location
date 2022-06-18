@@ -6,6 +6,7 @@ import {act, Actions, createEffect, ofType} from '@ngrx/effects';
 import {Action} from '@ngrx/store';
 import { ApartmentService } from 'src/app/services/apartment.service';
 import { 
+    ApartmentActions,
     ApartmentActionsTypes, GetAllApartmentActionError, GetAllApartmentActionSuccess, 
     GetAvailableApartment, GetAvailableApartmentSuccess, GetUnAvalaibleApartmentError,
     GetOneApartment, GetOneApartmentSuccess, GetOneApartmentError,
@@ -56,11 +57,24 @@ export class ApartmentEffects {
                     .pipe(
                         map((apartments) => new GetAvailableApartmentSuccess(apartments)),
                         catchError((err) =>of(new GetUnAvalaibleApartmentError(err.message)))
-
                     )
             })
         )  
     );
+
+    DeleteOneApartment : Observable<ApartmentActions> = createEffect(
+            () => this.effectAtions.pipe(
+                ofType(ApartmentActionsTypes.DELETE_ONE_APARTMENT),
+                mergeMap((action: ApartmentActions) => {
+                     this.apartmentService.deleteOneApartment(action.payload.id)
+                     .pipe(
+                         map(() => new DeleteOneApartmentSuccess(action.payload)),
+                         catchError((err) => of(new DeleteOneApartmentError(err.message)))
+                     )
+                })
+            )
+    )
+
     
 
 }
