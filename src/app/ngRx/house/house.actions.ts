@@ -1,4 +1,5 @@
 import { Action } from "@ngrx/store";
+import { HouseDTO } from "src/app/models/house.dto";
 import { House } from "src/app/models/house.model";
 
 export enum HouseActionsTypes {
@@ -65,7 +66,9 @@ export class GetAvalaibleAction implements Action {
 
 export class GetAvalaibleActionSuccess implements Action  {
     type: HouseActionsTypes = HouseActionsTypes.GET_AVALAIBLE_HOUSES_SUCCESS;
-    constructor(public payload: House[]){}
+    constructor(public payload: House[]){
+        console.log(payload)
+    }
 }
 export class GetAvalaibleActionError implements Action  {
     type: HouseActionsTypes = HouseActionsTypes.GET_AVALAIBLE_HOUSES_ERROR;
@@ -110,7 +113,7 @@ export class CreateHouse implements Action {
 }
 export class CreateHouseSuccess implements Action {
     type: HouseActionsTypes = HouseActionsTypes.CREATE_HOUSES_SUCCESS;
-    constructor(public payload: House){}
+    constructor(public payload: HouseDTO){}
 }
 export class CreateHouseError implements Action {
     type: HouseActionsTypes = HouseActionsTypes.CREATE_HOUSES_ERROR;

@@ -17,14 +17,25 @@ export interface HouseState {
     houses: House[],
     errorMessage: string,
     dataState: HousestateEnum,
-    currentHouse: House | null
+    currentHouse: House | null,
+    data: ResponseData | null
+}
+export interface ResponseData {
+    timeStamp: string,
+    statuCode: string,
+    status: string,
+    reason: string,
+    message: string,
+    developerMessage: string,
+    data: {}
 }
 
 const initState: HouseState = {
     houses: [],
     errorMessage: "",
     dataState: HousestateEnum.INITIAL,
-    currentHouse: null
+    currentHouse: null,
+    data: null
 }
 
 export function housesReducer(state= initState, action: Action): HouseState {
@@ -87,3 +98,8 @@ export function housesReducer(state= initState, action: Action): HouseState {
         default : return {...state}
     }
 }
+
+
+
+
+// ¥ë÷×

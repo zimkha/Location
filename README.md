@@ -27,3 +27,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+Une liste chaînée est une structure de données linéaire.
+
+Si bien que la list c'est une class alors les attributs représentent l'état interne de l'objet
+
+Le constructeur par defaut d'instancier la class soit avec un constructeur parametre soit simplement un constructeur sans params
+
+La fonction qui permet de savoir si la liste est vide :  1 c'est une fonction qui ne prend pas beaucoup d'espace car la complexité temporelle est 𝑂(1)
+
+Pour l'ajout d'un element dans la liste la complexité est O(n) si vous devez rechercher la position dans laquelle insérer le nouveau nœud
+
+de meme que si on doit supprimer un element car la fonction cherche d'abord la position de l'element
+
+
+

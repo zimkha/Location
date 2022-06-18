@@ -24,7 +24,10 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets/img/undraw_profile_1.svg",
+              "src/assets/img/undraw_profile_2.svg",
+              "src/assets/img/undraw_profile_3.svg",
+              "src/assets/img/undraw_profile.svg"
             ],
             "styles": [
               "src/styles.css",
@@ -33,7 +36,13 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/sb-admin-2.min.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/vendor/jquery-easing/jquery.easing.min.js",
+              "src/assets/vendor/datatables/jquery.dataTables.min.j",
+              "src/assets/vendor/datatables/dataTables.bootstrap4.min.js",
+              ""
             ]
           },
           "configurations": {

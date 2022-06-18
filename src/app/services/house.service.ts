@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { House } from '../models/house.model';
+import { HouseDTO } from '../models/house.dto';
 import { environment } from 'src/environments/environment';
 
 
@@ -12,7 +13,8 @@ export class HouseService {
     constructor(private _http: HttpClient) {}
     
    public getAllHouses(): Observable<House[]> {
-     return this._http.get<House[]>(this.apiUrl + "/houses");
+      // console.log( this._http.get<House[]>(environment.server + "/homes/list"));
+     return this._http.get<House[]>(environment.server + "/homes/list");
     }
     public getOneHouseById(id: number): Observable<House> {
         return this._http.get<House>(this.apiUrl + "/houses/"+ id);
@@ -40,6 +42,10 @@ export class HouseService {
     public onDelete(id: number): Observable<void> {
         return this._http.delete<void>(environment.host + "/houses/"+id);
     }
+    
+    public onSaveOnServer(item: HouseDTO): Observable<HouseDTO> {
+        return this._http.post<HouseDTO>(environment.server +"/homes/created", item);
 
+    }
   
 }

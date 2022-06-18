@@ -20,6 +20,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EditHousesComponent } from './components/houses/edit-houses/edit-houses.component';
+import {SidebareComponent } from './components/sidebare/sidebare.component';
+import { ListApartmentComponent } from './components/list-apartment/list-apartment.component';
+import { ApartmentNavbarComponent } from './components/apartment-navbar/apartment-navbar.component';
+import { ApartmentSearchComponent } from './components/apartment-search/apartment-search.component';
+
 
 
 @NgModule({
@@ -30,7 +35,11 @@ import { EditHousesComponent } from './components/houses/edit-houses/edit-houses
     HouseNavBarComponent,
     HouseListItemsComponent,
     AddHouseComponent,
-    EditHousesComponent
+    EditHousesComponent,
+    SidebareComponent,
+    ListApartmentComponent,
+    ApartmentNavbarComponent,
+    ApartmentSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -31,7 +31,10 @@ export class AddHouseComponent implements OnInit {
       nb_sdb:[0, Validators.required],
       nb_pieces:[2, Validators.required],
       rent_per_room: [false, Validators.required],
-      garage:  [false, Validators.required]
+      garage:  [false, Validators.required],
+      isFurniture: [false, Validators.required],
+      pool: [false, Validators.required],
+      zone: [1]
     })
     }
 

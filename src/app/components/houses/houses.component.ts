@@ -18,8 +18,10 @@ export class HousesComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new GetAllHouseAction({}));
+    console.log(this.houseState$)
     this.houseState$= this.store.pipe(
       map((state) => state.catalogState)
+      
     );
   }
 

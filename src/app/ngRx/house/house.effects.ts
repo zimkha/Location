@@ -47,7 +47,8 @@ export class HouseEffects {
             mergeMap((action) => {
                 return this.houseService.getOneSelected()
                     .pipe(
-                        map((houses) =>new GetAvalaibleActionSuccess(houses)),
+                        map((houses) =>
+                        new GetAvalaibleActionSuccess(houses)),
                         catchError((err) => of(new GetAvalaibleActionError(err.message)))
                     )
             })
@@ -86,7 +87,7 @@ export class HouseEffects {
         () => this.effectAtions.pipe(
             ofType(HouseActionsTypes.CREATE_HOUSES),
             mergeMap((action: HousesActions) => {
-                return this.houseService.onSaveHouse(action.payload)
+                return this.houseService.onSaveOnServer(action.payload)
                 .pipe(
                     map((house) => new CreateHouseSuccess(house)),
                     catchError((err) => of(new CreateHouseError(err.message)))
