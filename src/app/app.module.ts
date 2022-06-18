@@ -24,6 +24,10 @@ import {SidebareComponent } from './components/sidebare/sidebare.component';
 import { ListApartmentComponent } from './components/list-apartment/list-apartment.component';
 import { ApartmentNavbarComponent } from './components/apartment-navbar/apartment-navbar.component';
 import { ApartmentSearchComponent } from './components/apartment-search/apartment-search.component';
+import { HomeComponent } from './components/home/home.component';
+import { BilanComponent } from './components/bilan/bilan.component';
+import { DiagrammeComponent } from './components/diagramme/diagramme.component';
+import { RoomComponent } from './components/room/room.component';
 
 
 
@@ -39,7 +43,11 @@ import { ApartmentSearchComponent } from './components/apartment-search/apartmen
     SidebareComponent,
     ListApartmentComponent,
     ApartmentNavbarComponent,
-    ApartmentSearchComponent
+    ApartmentSearchComponent,
+    HomeComponent,
+    BilanComponent,
+    DiagrammeComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,

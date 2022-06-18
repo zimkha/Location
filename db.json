@@ -81,7 +81,7 @@
       "nb_pieces": 10,
       "nb_sdb": 3,
       "nb_total_chambre": 3,
-      "rent_per_room": false,
+      "rent_per_room": true,
       "garage": true,
       "price_location": 2500000,
       "locations": [
@@ -112,6 +112,31 @@
       "code": "Cd001",
       "city": "Nord Foir",
       "price_location": "175000",
+      "avalaible": true,
+      "nb_etage": 3,
+      "nb_sdb": 3,
+      "nb_pieces": 12,
+      "rent_per_room": false,
+      "garage": true,
+      "id": 7
+    },
+    {
+      "code": "Cd00111",
+      "city": "Nord Foir bis",
+      "price_location": "175000",
+      "avalaible": true,
+      "nb_etage": 3,
+      "nb_sdb": 3,
+      "nb_pieces": 12,
+      "rent_per_room": false,
+      "garage": true,
+      "id": 11
+    },
+    {
+      "code": "C001",
+      "city": "west Foir",
+      "price_location": "175000",
+      "avalaible": true,
       "nb_etage": 3,
       "nb_sdb": 3,
       "nb_pieces": 12,
@@ -121,6 +146,7 @@
     },
     {
       "code": "H005",
+      "avalaible": true,
       "city": "Cité Douane",
       "price_location": "35000",
       "nb_etage": 1,
