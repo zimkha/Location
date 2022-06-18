@@ -65,19 +65,94 @@ export class GetAvailableApartmentError implements Action {
 
 // GET UNAVAILBLE APARTMENT
 
-export class getUnAvalaibleApartment implements Action {
+export class GetUnAvalaibleApartment implements Action {
     type: ApartmentActionsTypes = ApartmentActionsTypes.GET_UNAVAIALBLE_APARTMENTS
     constructor(public payload: any){}
 }
 
-export class getUnAvalaibleApartmentSuccess implements Action {
+export class GetUnAvalaibleApartmentSuccess implements Action {
     type: ApartmentActionsTypes = ApartmentActionsTypes.GET_AVAIALBLE_APARTMENT_SUCCESS
     constructor(public payload:  Apartment[]){}
 }
 
-export class getUnAvalaibleApartmentError implements Action {
+export class GetUnAvalaibleApartmentError implements Action {
     type: ApartmentActionsTypes = ApartmentActionsTypes.GET_UNAVAIALBLE_APARTMENT_ERROR
     constructor(public payload: String){}
 }
 
-export type ApartmentAction = GetAllApartment;
+// CREATE APARTMENT
+
+export class CreateApartment implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.CREATE_APARTMENT
+    constructor(public payload: any){}
+}
+
+export class CreateApartmentSuccess implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.CREATE_APARTMENT_SUCCESS
+    constructor(public payload:  Apartment){}
+}
+
+export class CreateApartmentError implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.CREATE_APARTMENT_ERROR
+    constructor(public payload: String){}
+}
+
+// GET ONE APARTMENT
+export class GetOneApartment implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.GET_ONE_APARTMENT
+    constructor(public payload: any){}
+}
+
+export class GetOneApartmentSuccess implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.GET_ONE_APARTMENT_SUCCESS
+    constructor(public payload:  Apartment){}
+}
+
+export class GetOneApartmentError implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.GET_ONE_APARTMENT_ERROR
+    constructor(public payload: String){}
+}
+
+// DELETE ONE APARTMENT
+
+export class DeleteOneApartment implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.DELETE_ONE_APARTMENT
+    constructor(public payload: any){}
+}
+
+export class DeleteOneApartmentSuccess implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.DELETE_ONE_APARTMENT_SUCCESS
+    constructor(public payload:  Apartment){}
+}
+
+export class DeleteOneApartmentError implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.DELETE_ONE_APARTMENT_ERROR
+    constructor(public payload: String){}
+}
+
+// UPDATE ONE APARTMENT
+
+export class UpdateOneApartment implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.UPDATE_ONE_APARTMENT
+    constructor(public payload: any){}
+}
+
+export class UpdateOneApartmentSuccess implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.UPDATE_ONE_APARTMENT_SUCCESS
+    constructor(public payload:  Apartment){}
+}
+
+export class UpdateOneApartmentError implements Action {
+    type: ApartmentActionsTypes = ApartmentActionsTypes.UPDATE_ONE_APARTMENT_SUCCESS
+    constructor(public payload: String){}
+}
+
+
+
+export type ApartmentAction = GetAllApartment |GetAllApartmentActionSuccess | GetAllApartmentActionError
+                            | GetAvailableApartment | GetAvailableApartmentSuccess | GetAvailableApartmentError
+                            | CreateApartment | CreateApartmentSuccess | CreateApartmentError
+                            | GetUnAvalaibleApartment | GetUnAvalaibleApartmentSuccess | GetUnAvalaibleApartmentError
+                            | GetOneApartment | GetOneApartmentSuccess | GetOneApartmentError
+                            | DeleteOneApartment | DeleteOneApartmentSuccess | DeleteOneApartmentError
+                            | UpdateOneApartment | UpdateOneApartmentSuccess | UpdateOneApartmentError;

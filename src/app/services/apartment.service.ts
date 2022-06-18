@@ -12,10 +12,29 @@ export class ApartmentService {
     private  apiUrl = environment.host;
     constructor(private _http: HttpClient) {}
 
-    public getAllHouses(): Observable<Apartment[]> {
+    public getAllApartment(): Observable<Apartment[]> {
         // console.log( this._http.get<House[]>(environment.server + "/homes/list"));
        return this._http.get<Apartment[]>(environment.server + "/appartements");
       }
+      public getAvalaibleApartment() : Observable<Apartment[]>{
+        return  this._http.get<Apartment[]>(this.apiUrl + "/appartements?avalaible=true");
+      }
+      public getOneApartment(id: number): Observable<Apartment> {
+        return  this._http.get<Apartment>(this.apiUrl + "/appartements/"+ id);
+      }
+      public getUnAvalaibleApartment() : Observable<Apartment[]>{
+        return  this._http.get<Apartment[]>(this.apiUrl + "/appartements?avalaible=false");
+      } 
+      public deleteOneApartment(id: number): Observable<void>{
+          return this._http.delete<void>(this.apiUrl + "appartements/" +id)
+      }
+      public onSave(apartment: Apartment): Observable<Apartment> {
+        return this._http.post<Apartment>(this.apiUrl +"/appartements", apartment);
+    }
+
+    public onUpdate(apartment: Apartment): Observable<Apartment> {
+        return this._http.put<Apartment>(environment.host+"/appartements/"+apartment.id,apartment);
+    }
 
 }
 
