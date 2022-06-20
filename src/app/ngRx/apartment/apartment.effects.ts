@@ -88,6 +88,18 @@ export class ApartmentEffects {
         )
     );
 
+    UpdateApartment : Observable<ApartmentActions> = createEffect(
+        () => this.effectAtions.pipe(
+            ofType(ApartmentActionsTypes.UPDATE_ONE_APARTMENT),
+            mergeMap((action: ApartmentActions) => {
+                return this.apartmentService.onUpdate(action.payload)
+                   .pipe(
+                       map((apartment) => new UpdateOneApartmentSuccess(apartment)),
+                       catchError((err) => of(new UpdateOneApartmentError(err.message)))
+                   )
+            })
+        )
+    );
     
 
 }
