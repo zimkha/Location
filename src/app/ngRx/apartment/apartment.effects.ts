@@ -66,14 +66,27 @@ export class ApartmentEffects {
             () => this.effectAtions.pipe(
                 ofType(ApartmentActionsTypes.DELETE_ONE_APARTMENT),
                 mergeMap((action: ApartmentActions) => {
-                     this.apartmentService.deleteOneApartment(action.payload.id)
+                    return this.apartmentService.deleteOneApartment(action.payload.id)
                      .pipe(
                          map(() => new DeleteOneApartmentSuccess(action.payload)),
                          catchError((err) => of(new DeleteOneApartmentError(err.message)))
                      )
                 })
             )
-    )
+    );
+
+    CreateApartment : Observable<ApartmentActions> = createEffect(
+        () => this.effectAtions.pipe(
+            ofType(ApartmentActionsTypes.CREATE_APARTMENT),
+            mergeMap((action: ApartmentActions) => {
+                return this.apartmentService.onSave(action.payload)
+                    .pipe(
+                        map((apartment) => new CreateApartmentSuccess(apartment)),
+                        catchError((err) => of(new CreateApartmentError(err.message)))
+                    )
+            })
+        )
+    );
 
     
 

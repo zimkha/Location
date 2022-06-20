@@ -122,7 +122,7 @@ export class DeleteOneApartment implements Action {
 
 export class DeleteOneApartmentSuccess implements Action {
     type: ApartmentActionsTypes = ApartmentActionsTypes.DELETE_ONE_APARTMENT_SUCCESS
-    constructor(public payload:  Apartment){}
+    constructor(public payload:  Apartment ){}
 }
 
 export class DeleteOneApartmentError implements Action {
