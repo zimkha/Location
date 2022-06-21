@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HouseState, HousestateEnum } from 'src/app/ngRx/house/house.reducer'; 
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { House } from 'src/app/models/house.model';
 import { Store } from '@ngrx/store';
 import { DeleteHouse } from 'src/app/ngRx/house/house.actions';

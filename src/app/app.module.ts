@@ -13,6 +13,8 @@ import { HouseListItemsComponent } from './components/houses/house-list-items/ho
 import { HousesComponent } from './components/houses/houses.component';
 import { housesReducer } from './ngRx/house/house.reducer';
 import { HouseEffects } from './ngRx/house/house.effects';
+import { apartmentReducer } from './ngRx/apartment/apartment.reducer';
+import { ApartmentEffects} from './ngRx/apartment/apartment.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AddHouseComponent } from './components/forms/add-house/add-house.component';
@@ -52,9 +54,9 @@ import { RoomComponent } from './components/room/room.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({catalogState: housesReducer}),
+    StoreModule.forRoot({catalogState: housesReducer, catalogApState: apartmentReducer}),
     HttpClientModule,
-    EffectsModule.forRoot([HouseEffects]),
+    EffectsModule.forRoot([HouseEffects, ApartmentEffects]),
     StoreDevtoolsModule.instrument(),
     FormsModule,  
     ReactiveFormsModule,

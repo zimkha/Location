@@ -13,8 +13,7 @@ export class ApartmentService {
     constructor(private _http: HttpClient) {}
 
     public getAllApartment(): Observable<Apartment[]> {
-        // console.log( this._http.get<House[]>(environment.server + "/homes/list"));
-       return this._http.get<Apartment[]>(environment.server + "/appartements");
+       return this._http.get<Apartment[]>(this.apiUrl+ "/appartements");
       }
       public getAvalaibleApartment() : Observable<Apartment[]>{
         return  this._http.get<Apartment[]>(this.apiUrl + "/appartements?avalaible=true");

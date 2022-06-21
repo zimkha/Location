@@ -1,20 +1,29 @@
-<div class="card-body">
-    <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr align="center">
-                    <th>Localisation</th>
-                    <th>Nbr Chambre</th>
-                    <th>Style</th>
-                    <th>Nbr SDB</th>
-                    <th>Cuisine</th>
-                    <th>WVC</th>
-                    <th>action</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
-    </div>
-</div>
+<ng-container *ngIf=" apartmentState$ | async as state" [ngSwitch]="state.dataState">
+    <ng-container *ngSwitchCase="StateEnumApp.LOADING">
+        Loading...
+    </ng-container>
+    <ng-container *ngSwitchCase="StateEnumApp.LOADED">
+        {{ StateEnumApp.LOADED }}
+        <div class="card-body" [state]="state">
+            <div class="table-responsive">
+                <table  *ngIf="state" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr align="center">
+                            <th>Localisation</th>
+                            <th>Nbr Chambre</th>
+                            <th>Style</th>
+                            <th>Nbr SDB</th>
+                            <th>Cuisine</th>
+                            <th>WVC</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr align="center" *ngFor="let h of state.apartments | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalRecord }">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

@@ -12,7 +12,7 @@ import {
     GetOneApartment, GetOneApartmentSuccess, GetOneApartmentError,
     DeleteOneApartment, DeleteOneApartmentSuccess, DeleteOneApartmentError,
     CreateApartment, CreateApartmentSuccess, CreateApartmentError,
-    UpdateOneApartment, UpdateOneApartmentSuccess, UpdateOneApartmentError
+    UpdateOneApartment, UpdateOneApartmentSuccess, UpdateOneApartmentError, GetUnAvalaibleApartmentSuccess
 
 } from './apartment.action';
 
@@ -101,5 +101,17 @@ export class ApartmentEffects {
         )
     );
     
+    GetUnAvalaibleApartment : Observable<ApartmentActions> = createEffect(
+        () => this.effectAtions.pipe(
+            ofType(ApartmentActionsTypes.GET_UNAVAIALBLE_APARTMENTS),
+            mergeMap((action : ApartmentActions) => {
+                return this.apartmentService.getUnAvalaibleApartment()
+                .pipe(
+                    map((apartments) => new GetUnAvalaibleApartmentSuccess(apartments)),
+                    catchError((err) => of(new GetUnAvalaibleApartmentError(err.message)))
+                )
+            })
+        )
+    )
 
 }

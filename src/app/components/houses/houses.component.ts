@@ -17,11 +17,11 @@ export class HousesComponent implements OnInit {
   constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
+    
     this.store.dispatch(new GetAllHouseAction({}));
     console.log(this.houseState$)
     this.houseState$= this.store.pipe(
       map((state) => state.catalogState)
-      
     );
   }
 
