@@ -2,8 +2,20 @@
     <ng-container *ngSwitchCase="StateEnumApp.LOADING">
         Loading...
     </ng-container>
+    <form
+    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
+        <input type="text" ngModel name="keyword" class="form-control bg-light border-0 small" placeholder="Search for..."
+            aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+</form>
     <ng-container *ngSwitchCase="StateEnumApp.LOADED">
-        {{ StateEnumApp.LOADED }}
+     
         <div class="card-body" [state]="state">
             <div class="table-responsive">
                 <table  *ngIf="state" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -15,14 +27,49 @@
                             <th>Nbr SDB</th>
                             <th>Cuisine</th>
                             <th>WVC</th>
+                           <th>Occupée</th>
                             <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr align="center" *ngFor="let h of state.apartments | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalRecord }">
+                        <tr align="center" *ngFor="let app of state.apartments | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalRecord }">
+                            <td>{{app.city}}</td>
+                            <td>{{app.nbr_chambre_simple}}</td>
+                            <td>
+                                <button *ngIf="app.styleAppartement"  class="btn btn-sm btn btn-success">
+                                    <span class="badge badge-success">Meuble</span>
+                               </button>
+                               <button *ngIf="!app.styleAppartement" class="btn btn-sm btn btn-primary">
+                                   <span >No Meuble</span>
+                              </button>
+                            </td>
+                            <td>
+                                <button *ngIf="app.isTaked"  class="btn btn-sm btn btn-danger">
+                                    <span class="badge badge-success">Pas Libre</span>
+                               </button>
+                               <button *ngIf="!app.isTaked" class="btn btn-sm btn btn-success">
+                                   <span >Libre</span>
+                              </button>
+                            </td>
+                            <td>{{app.nbr_csd}}</td>
+                            <td>{{app.nbr_cuisine}}</td>
+                            <td>{{app.toillete}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger myspace" title="supprimer">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                <button class="btn btn-sm btn-primary myspace" title="consulter"  >
+                                    <i class="fa fa-pencil" ></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="row">
+                    <div class="col-xs-12 col-12">
+                        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                    </div>
+                </div>
             </div>
         </div>
     </ng-container>

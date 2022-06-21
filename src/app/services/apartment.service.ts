@@ -34,6 +34,9 @@ export class ApartmentService {
     public onUpdate(apartment: Apartment): Observable<Apartment> {
         return this._http.put<Apartment>(environment.host+"/appartements/"+apartment.id,apartment);
     }
+    public onSearchByAttribut() : Observable<any> {
+      return this._http.get<Apartment[]>(this.apiUrl + "");
+    }
 
 }
 

@@ -30,7 +30,11 @@ export enum ApartmentActionsTypes {
 
     UPDATE_ONE_APARTMENT = "[Apartment] UPDATE one apartment",
     UPDATE_ONE_APARTMENT_SUCCESS="[Apartment] UPDATE one Apartment Success",
-    UPDATE_ONE_APARTMENT_ERROR="[Apartment] UPDATE one Apartment Error"
+    UPDATE_ONE_APARTMENT_ERROR="[Apartment] UPDATE one Apartment Error",
+
+    GET_ALL_APARTMENT_BY_CITY = "[Apartment] Get All Apartment by city",
+    GET_ALL_APARTMENT_BY_CITY_SUCCESS = "[Apartment] Get All Apartment by city Success",
+    GET_ALL_APARTMENT_BY_CITY_ERROR = "[Apartment] Get All Apartment by city Error"
 }
 
 export class  GetAllApartment implements Action{
@@ -145,6 +149,19 @@ export class UpdateOneApartmentSuccess implements Action {
 export class UpdateOneApartmentError implements Action {
     type: ApartmentActionsTypes = ApartmentActionsTypes.UPDATE_ONE_APARTMENT_SUCCESS
     constructor(public payload: String){}
+}
+
+export class GetAllApartmentByCity implements Action {
+    type : ApartmentActionsTypes = ApartmentActionsTypes.GET_ALL_APARTMENT_BY_CITY
+    constructor(public payload: any){}
+}
+export class GetAllApartmentByCitySuccess implements Action {
+    type : ApartmentActionsTypes = ApartmentActionsTypes.GET_ALL_APARTMENT_BY_CITY_SUCCESS
+    constructor(public payload: Apartment[]){}
+}
+export class GetAllApartmentByCityError implements Action {
+    type : ApartmentActionsTypes = ApartmentActionsTypes.GET_ALL_APARTMENT_BY_CITY_ERROR
+    constructor(public payload: String[]){}
 }
 
 

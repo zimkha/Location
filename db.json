@@ -186,7 +186,7 @@
       "code": "A001",
       "city": "Parcelles",
       "nbr_chambre_simple": 4,
-      "styleAppartement": true,
+      "styleAppartement": false,
       "nbr_csd": 1,
       "nbr_cuisine": 1,
       "toillete": 1,
