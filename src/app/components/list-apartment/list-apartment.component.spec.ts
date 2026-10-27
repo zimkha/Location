@@ -1,5 +1,7 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { APP_TEST_IMPORTS } from '../../testing/app-test-imports';
 import { ListApartmentComponent } from './list-apartment.component';
 
 describe('ListApartmentComponent', () => {
@@ -8,7 +10,9 @@ describe('ListApartmentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListApartmentComponent ]
+      declarations: [ ListApartmentComponent ],
+      imports: APP_TEST_IMPORTS,
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   });
