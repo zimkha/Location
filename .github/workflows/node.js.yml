@@ -14,18 +14,23 @@ jobs:
 
     runs-on: ubuntu-latest
 
-   
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    # karma.conf.js watches with a windowed Chrome for local use; CI needs one headless run that exits. The unit tests compile against environment.ts and do not need the production build, so they report even when that build fails.
+    - run: npm test -- --watch=false --browsers=ChromeHeadless
     - run: npm run build --if-present
-    - run: npm test --if-present
   # You may pin to the exact commit or the version.
     -  uses: mayurrawte/github-angular-actions@latest
-   
-    
+
+

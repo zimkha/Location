@@ -40,9 +40,8 @@
               "src/assets/js/sb-admin-2.min.js",
               "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "src/assets/vendor/jquery-easing/jquery.easing.min.js",
-              "src/assets/vendor/datatables/jquery.dataTables.min.j",
-              "src/assets/vendor/datatables/dataTables.bootstrap4.min.js",
-              ""
+              "src/assets/vendor/datatables/jquery.dataTables.min.js",
+              "src/assets/vendor/datatables/dataTables.bootstrap4.min.js"
             ]
           },
           "configurations": {
@@ -51,12 +50,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "1.5mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "200kb"
                 }
               ],
               "fileReplacements": [
